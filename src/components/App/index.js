@@ -1,9 +1,15 @@
+import {MainContext, Fragment} from '../../contexts/MainContext'
+
 const App = () => {
+    const [state, dispatch] = useContext(MainContext)
     return (
-      <div>
-        <h1>Hello World</h1>
-        <p>This is a boilerplate for a React App</p>
-      </div>
-    );
-  }
-  export default App
+        <Fragment>
+            {
+                state.loading ? <div>Loading...</div> : (
+                    <div>App</div>
+                )
+            }
+        </Fragment>
+    )
+}
+export default App
